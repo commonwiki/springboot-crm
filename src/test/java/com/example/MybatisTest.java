@@ -36,7 +36,7 @@ public class MybatisTest {
 
 			Student student = new Student();
 			student.setName("user" + i);
-			student.setMobile("1300000000");
+			student.setMobile(i+"");
 			student.setMail("123@qq.com");
 			student.setSex("男");
 			student.setEducation("本科");
