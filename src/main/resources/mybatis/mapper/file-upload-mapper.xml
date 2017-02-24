@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.FileUploadMapper">
+
+	<insert id="insert" parameterType="fileUpload">
+		insert into file (name,type,path,size)
+		values (#{name},#{type},#{path},#{size})
+	</insert>
+	
+	<resultMap type="fileUpload" id="fileUploadMap">
+		<id column="id" property="id"/>
+		<result column="path" property="path"/>
+	</resultMap>
+	
+	<select id="getList" resultMap="fileUploadMap">
+		select id,path from file where flag = 0
+	</select>
+	
+	<update id="update" parameterType="fileUpload">
+		update file set flag = 1 where id = #{id}
+	</update>
+	
+</mapper>
